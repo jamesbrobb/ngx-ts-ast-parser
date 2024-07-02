@@ -1,0 +1,27 @@
+{
+  "name": "@jamesbenrobb/ngx-ts-ast-parser",
+  "version": "0.0.1-beta.1",
+  "description": "Angular specific declarations for @jamesbenrobb/ts-ast-parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p tsconfig.json && copyfiles ./package.json ./README.md dist/@jamesbenrobb/ngx-ts-ast-parser/src",
+    "build:prod": "tsc -p tsconfig.prod.json && copyfiles ./package.json ./README.md dist/@jamesbenrobb/ngx-ts-ast-parser/src",
+    "cd:dist": "cd dist/@jamesbenrobb/ngx-ts-ast-parser/src",
+    "release:beta": "npm version prerelease --preid=beta && npm run build:prod && cd dist/@jamesbenrobb/ngx-ts-ast-parser/src && npm publish --tag beta",
+    "release:major": "npm version major && npm run build:prod && npm run cd:dist && npm publish --tag latest",
+    "release:minor": "npm version minor && npm run build:prod && npm run cd:dist && npm publish --tag latest",
+    "release:patch": "npm version patch && npm run build:prod && npm run cd:dist && npm publish --tag latest"
+  },
+  "author": "James Robb",
+  "license": "ISC",
+  "dependencies": {
+    "@jamesbenrobb/ts-ast-parser": "^0.0.1-beta.9",
+    "typescript": "^5.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "copyfiles": "^2.4.1",
+    "tsx": "^4.16.0"
+  }
+}
