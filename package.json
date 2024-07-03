@@ -9,9 +9,9 @@
     "build:prod": "tsc -p tsconfig.prod.json && copyfiles ./package.json ./README.md dist/@jamesbenrobb/ngx-ts-ast-parser/src",
     "cd:dist": "cd dist/@jamesbenrobb/ngx-ts-ast-parser/src",
     "release:beta": "npm version prerelease --preid=beta && npm run build:prod && cd dist/@jamesbenrobb/ngx-ts-ast-parser/src && npm publish --tag beta",
-    "release:major": "npm version major && npm run build:prod && npm run cd:dist && npm publish --tag latest",
-    "release:minor": "npm version minor && npm run build:prod && npm run cd:dist && npm publish --tag latest",
-    "release:patch": "npm version patch && npm run build:prod && npm run cd:dist && npm publish --tag latest"
+    "release:major": "npm version major && npm run build:prod && cd dist/@jamesbenrobb/ngx-ts-ast-parser/src && npm publish --tag latest",
+    "release:minor": "npm version minor && npm run build:prod && cd dist/@jamesbenrobb/ngx-ts-ast-parser/src && npm publish --tag latest",
+    "release:patch": "npm version patch && npm run build:prod && cd dist/@jamesbenrobb/ngx-ts-ast-parser/src && npm publish --tag latest"
   },
   "author": "James Robb",
   "license": "ISC",
