@@ -2,7 +2,7 @@ import {
   DeclarationDefinition,
   MethodDeclaration,
   extendDefinition,
-  methodDeclarationDefinition
+  methodDeclarationDefinition, isMethodDeclaration, DeclarationKind
 } from "@jamesbenrobb/ts-ast-parser";
 
 
@@ -19,6 +19,15 @@ export const ngMethodDeclarationDefinition: DeclarationDefinition<NgMethodDeclar
     ]
   }
 );
+
+
+export function isNgMethodDeclaration(dec: DeclarationKind<any>): dec is NgMethodDeclaration {
+  return isMethodDeclaration(dec);
+}
+
+export function isLifeCycleMethod(dec: DeclarationKind<any>): dec is NgMethodDeclaration & {isLifeCycleMethod: true} {
+  return isNgMethodDeclaration(dec) && !!dec.isLifeCycleMethod;
+}
 
 
 

@@ -41,10 +41,28 @@
         "typeParameters": [
           {
             "kind": "TypeParameter",
-            "name": "HorzScaleItem"
+            "name": "HorzScaleItem",
+            "signature": "HorzScaleItem"
           }
         ],
-        "members": [
+        "members": [],
+        "modifiers": {
+          "decorators": [
+            {
+              "type": "Directive",
+              "metadata": {
+                "selector": "[tvChartInputs]",
+                "standalone": true
+              },
+              "signature": "@Directive({selector: [tvChartInputs], standalone: true})"
+            }
+          ],
+          "keywords": [
+            "export"
+          ]
+        },
+        "isUI": true,
+        "inputs": [
           {
             "kind": "PropertyDeclaration",
             "name": "id",
@@ -53,10 +71,12 @@
               "typeArguments": [
                 "string"
               ],
-              "arguments": []
+              "arguments": [],
+              "signature": "input<>()"
             },
             "access": "public",
-            "isInput": true
+            "isInput": true,
+            "signature": "id = input<>()"
           },
           {
             "kind": "PropertyDeclaration",
@@ -70,15 +90,21 @@
                   "typeArguments": [
                     {
                       "kind": "TypeReference",
-                      "name": "ChartOptions"
+                      "name": "ChartOptions",
+                      "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#chartoptions",
+                      "signature": "ChartOptions"
                     }
-                  ]
+                  ],
+                  "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#deeppartial",
+                  "signature": "DeepPartial<ChartOptions>"
                 }
               ],
-              "arguments": []
+              "arguments": [],
+              "signature": "input<DeepPartial<ChartOptions>>()"
             },
             "access": "public",
-            "isInput": true
+            "isInput": true,
+            "signature": "options = input<DeepPartial<ChartOptions>>()"
           },
           {
             "kind": "PropertyDeclaration",
@@ -94,33 +120,24 @@
                     "typeArguments": [
                       {
                         "kind": "TypeReference",
-                        "name": "HorzScaleItem"
+                        "name": "HorzScaleItem",
+                        "signature": "HorzScaleItem"
                       }
-                    ]
-                  }
+                    ],
+                    "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/seriesmarker",
+                    "signature": "SeriesMarker<HorzScaleItem>"
+                  },
+                  "signature": "SeriesMarker<HorzScaleItem>[]"
                 }
               ],
-              "arguments": []
+              "arguments": [],
+              "signature": "input<SeriesMarker<HorzScaleItem>[]>()"
             },
             "access": "public",
-            "isInput": true
+            "isInput": true,
+            "signature": "markers = input<SeriesMarker<HorzScaleItem>[]>()"
           }
-        ],
-        "modifiers": {
-          "decorators": [
-            {
-              "type": "Directive",
-              "metadata": {
-                "selector": "[tvChartInputs]",
-                "standalone": true
-              }
-            }
-          ],
-          "keywords": [
-            "export"
-          ]
-        },
-        "isUI": true
+        ]
       },
       {
         "kind": "VariableDeclaration",
@@ -161,7 +178,7 @@
       {
         "name": "TVChart",
         "module": "../../core",
-        "resolvedModulePath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core"
+        "resolvedModulePath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart"
       },
       {
         "name": "outputFromObservable",
@@ -180,15 +197,36 @@
             "name": "T",
             "constraint": {
               "kind": "TypeReference",
-              "name": "SeriesType"
-            }
+              "name": "SeriesType",
+              "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#seriestype",
+              "signature": "SeriesType"
+            },
+            "signature": "T extends SeriesType"
           },
           {
             "kind": "TypeParameter",
-            "name": "HorzScaleItem"
+            "name": "HorzScaleItem",
+            "signature": "HorzScaleItem"
           }
         ],
-        "members": [
+        "members": [],
+        "modifiers": {
+          "decorators": [
+            {
+              "type": "Directive",
+              "metadata": {
+                "selector": "[tvChartOutputs]",
+                "standalone": true
+              },
+              "signature": "@Directive({selector: [tvChartOutputs], standalone: true})"
+            }
+          ],
+          "keywords": [
+            "export"
+          ]
+        },
+        "isUI": true,
+        "injectedDependencies": [
           {
             "kind": "PropertyDeclaration",
             "name": "#chart",
@@ -201,15 +239,19 @@
                   "typeArguments": [
                     {
                       "kind": "TypeReference",
-                      "name": "T"
+                      "name": "T",
+                      "signature": "T"
                     },
                     {
                       "kind": "TypeReference",
-                      "name": "HorzScaleItem"
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
                     }
-                  ]
+                  ],
+                  "signature": "TVChart<T, HorzScaleItem>"
                 }
-              ]
+              ],
+              "signature": "inject(TVChart<T, HorzScaleItem>)"
             },
             "modifiers": {
               "keywords": [
@@ -224,8 +266,11 @@
                 "T",
                 "HorzScaleItem"
               ]
-            }
-          },
+            },
+            "signature": "readonly #chart = inject(TVChart<T, HorzScaleItem>)"
+          }
+        ],
+        "outputs": [
           {
             "kind": "PropertyDeclaration",
             "name": "initialised",
@@ -236,10 +281,13 @@
                   "name": "initialised$",
                   "expression": {
                     "name": "#chart",
-                    "expression": "this"
-                  }
+                    "expression": "this",
+                    "signature": "this.#chart"
+                  },
+                  "signature": "this.#chart.initialised$"
                 }
-              ]
+              ],
+              "signature": "outputFromObservable(this.#chart.initialised$)"
             },
             "modifiers": {
               "keywords": [
@@ -247,7 +295,8 @@
               ]
             },
             "access": "public",
-            "isOutput": true
+            "isOutput": true,
+            "signature": "readonly initialised = outputFromObservable(this.#chart.initialised$)"
           },
           {
             "kind": "PropertyDeclaration",
@@ -259,10 +308,13 @@
                   "name": "click$",
                   "expression": {
                     "name": "#chart",
-                    "expression": "this"
-                  }
+                    "expression": "this",
+                    "signature": "this.#chart"
+                  },
+                  "signature": "this.#chart.click$"
                 }
-              ]
+              ],
+              "signature": "outputFromObservable(this.#chart.click$)"
             },
             "modifiers": {
               "keywords": [
@@ -270,7 +322,8 @@
               ]
             },
             "access": "public",
-            "isOutput": true
+            "isOutput": true,
+            "signature": "readonly chartClick = outputFromObservable(this.#chart.click$)"
           },
           {
             "kind": "PropertyDeclaration",
@@ -282,10 +335,13 @@
                   "name": "dblClick$",
                   "expression": {
                     "name": "#chart",
-                    "expression": "this"
-                  }
+                    "expression": "this",
+                    "signature": "this.#chart"
+                  },
+                  "signature": "this.#chart.dblClick$"
                 }
-              ]
+              ],
+              "signature": "outputFromObservable(this.#chart.dblClick$)"
             },
             "modifiers": {
               "keywords": [
@@ -293,7 +349,8 @@
               ]
             },
             "access": "public",
-            "isOutput": true
+            "isOutput": true,
+            "signature": "readonly chartDBLClick = outputFromObservable(this.#chart.dblClick$)"
           },
           {
             "kind": "PropertyDeclaration",
@@ -305,10 +362,13 @@
                   "name": "crossHairMove$",
                   "expression": {
                     "name": "#chart",
-                    "expression": "this"
-                  }
+                    "expression": "this",
+                    "signature": "this.#chart"
+                  },
+                  "signature": "this.#chart.crossHairMove$"
                 }
-              ]
+              ],
+              "signature": "outputFromObservable(this.#chart.crossHairMove$)"
             },
             "modifiers": {
               "keywords": [
@@ -316,7 +376,8 @@
               ]
             },
             "access": "public",
-            "isOutput": true
+            "isOutput": true,
+            "signature": "readonly crosshairMoved = outputFromObservable(this.#chart.crossHairMove$)"
           },
           {
             "kind": "PropertyDeclaration",
@@ -328,10 +389,13 @@
                   "name": "visibleTimeRangeChange$",
                   "expression": {
                     "name": "#chart",
-                    "expression": "this"
-                  }
+                    "expression": "this",
+                    "signature": "this.#chart"
+                  },
+                  "signature": "this.#chart.visibleTimeRangeChange$"
                 }
-              ]
+              ],
+              "signature": "outputFromObservable(this.#chart.visibleTimeRangeChange$)"
             },
             "modifiers": {
               "keywords": [
@@ -339,7 +403,8 @@
               ]
             },
             "access": "public",
-            "isOutput": true
+            "isOutput": true,
+            "signature": "readonly visibleTimeRangeChanged = outputFromObservable(this.#chart.visibleTimeRangeChange$)"
           },
           {
             "kind": "PropertyDeclaration",
@@ -351,10 +416,13 @@
                   "name": "visibleLogicalRangeChange$",
                   "expression": {
                     "name": "#chart",
-                    "expression": "this"
-                  }
+                    "expression": "this",
+                    "signature": "this.#chart"
+                  },
+                  "signature": "this.#chart.visibleLogicalRangeChange$"
                 }
-              ]
+              ],
+              "signature": "outputFromObservable(this.#chart.visibleLogicalRangeChange$)"
             },
             "modifiers": {
               "keywords": [
@@ -362,7 +430,8 @@
               ]
             },
             "access": "public",
-            "isOutput": true
+            "isOutput": true,
+            "signature": "readonly visibleLogicalRangeChanged = outputFromObservable(this.#chart.visibleLogicalRangeChange$)"
           },
           {
             "kind": "PropertyDeclaration",
@@ -374,10 +443,13 @@
                   "name": "sizeChange$",
                   "expression": {
                     "name": "#chart",
-                    "expression": "this"
-                  }
+                    "expression": "this",
+                    "signature": "this.#chart"
+                  },
+                  "signature": "this.#chart.sizeChange$"
                 }
-              ]
+              ],
+              "signature": "outputFromObservable(this.#chart.sizeChange$)"
             },
             "modifiers": {
               "keywords": [
@@ -385,7 +457,8 @@
               ]
             },
             "access": "public",
-            "isOutput": true
+            "isOutput": true,
+            "signature": "readonly sizeChanged = outputFromObservable(this.#chart.sizeChange$)"
           },
           {
             "kind": "PropertyDeclaration",
@@ -397,10 +470,13 @@
                   "name": "dataChange$",
                   "expression": {
                     "name": "#chart",
-                    "expression": "this"
-                  }
+                    "expression": "this",
+                    "signature": "this.#chart"
+                  },
+                  "signature": "this.#chart.dataChange$"
                 }
-              ]
+              ],
+              "signature": "outputFromObservable(this.#chart.dataChange$)"
             },
             "modifiers": {
               "keywords": [
@@ -408,24 +484,10 @@
               ]
             },
             "access": "public",
-            "isOutput": true
+            "isOutput": true,
+            "signature": "readonly dataChanged = outputFromObservable(this.#chart.dataChange$)"
           }
-        ],
-        "modifiers": {
-          "decorators": [
-            {
-              "type": "Directive",
-              "metadata": {
-                "selector": "[tvChartOutputs]",
-                "standalone": true
-              }
-            }
-          ],
-          "keywords": [
-            "export"
-          ]
-        },
-        "isUI": true
+        ]
       },
       {
         "kind": "VariableDeclaration",
@@ -548,7 +610,7 @@
       {
         "name": "TVChart",
         "module": "../../core",
-        "resolvedModulePath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core"
+        "resolvedModulePath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart"
       },
       {
         "name": "tvChartProviderWithExistenceCheck",
@@ -581,9 +643,13 @@
           "typeArguments": [
             {
               "kind": "TypeReference",
-              "name": "ChartOptions"
+              "name": "ChartOptions",
+              "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#chartoptions",
+              "signature": "ChartOptions"
             }
-          ]
+          ],
+          "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#deeppartial",
+          "signature": "DeepPartial<ChartOptions>"
         },
         "initializer": {
           "height": "300",
@@ -598,13 +664,15 @@
             "vertLine": {
               "style": {
                 "name": "LargeDashed",
-                "expression": "LineStyle"
+                "expression": "LineStyle",
+                "signature": "LineStyle.LargeDashed"
               }
             },
             "horzLine": {
               "style": {
                 "name": "LargeDashed",
-                "expression": "LineStyle"
+                "expression": "LineStyle",
+                "signature": "LineStyle.LargeDashed"
               }
             }
           }
@@ -619,9 +687,13 @@
           "typeArguments": [
             {
               "kind": "TypeReference",
-              "name": "ChartOptions"
+              "name": "ChartOptions",
+              "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#chartoptions",
+              "signature": "ChartOptions"
             }
-          ]
+          ],
+          "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#deeppartial",
+          "signature": "DeepPartial<ChartOptions>"
         },
         "initializer": {
           "expression": "deepmerge",
@@ -632,7 +704,8 @@
                 "background": {
                   "type": {
                     "name": "Solid",
-                    "expression": "ColorType"
+                    "expression": "ColorType",
+                    "signature": "ColorType.Solid"
                   },
                   "color": "#222"
                 },
@@ -661,7 +734,8 @@
                   "labelBackgroundColor": "#aaa",
                   "style": {
                     "name": "SparseDotted",
-                    "expression": "LineStyle"
+                    "expression": "LineStyle",
+                    "signature": "LineStyle.SparseDotted"
                   }
                 },
                 "horzLine": {
@@ -669,12 +743,14 @@
                   "labelBackgroundColor": "#aaa",
                   "style": {
                     "name": "SparseDotted",
-                    "expression": "LineStyle"
+                    "expression": "LineStyle",
+                    "signature": "LineStyle.SparseDotted"
                   }
                 }
               }
             }
-          ]
+          ],
+          "signature": "deepmerge(DEFAULT_CHART_OPTIONS, { layout: { background: { type: ColorType.Solid, color: #222 }, textColor: #DDD }, grid: { vertLines: { color: #444 }, horzLines: { color: #444 } }, timeScale: { borderColor: #555 }, leftPriceScale: { borderColor: #555 }, rightPriceScale: { borderColor: #555 }, crosshair: { vertLine: { color: #fff, labelBackgroundColor: #aaa, style: LineStyle.SparseDotted }, horzLine: { color: #fff, labelBackgroundColor: #aaa, style: LineStyle.SparseDotted } } })"
         }
       },
       {
@@ -686,116 +762,19 @@
             "name": "T",
             "constraint": {
               "kind": "TypeReference",
-              "name": "SeriesType"
-            }
+              "name": "SeriesType",
+              "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#seriestype",
+              "signature": "SeriesType"
+            },
+            "signature": "T extends SeriesType"
           },
           {
             "kind": "TypeParameter",
-            "name": "HorzScaleItem"
+            "name": "HorzScaleItem",
+            "signature": "HorzScaleItem"
           }
         ],
         "members": [
-          {
-            "kind": "PropertyDeclaration",
-            "name": "type",
-            "initializedValue": {
-              "expression": {
-                "name": "required",
-                "expression": "input"
-              },
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "T"
-                }
-              ],
-              "arguments": [
-                {
-                  "alias": "tvChart"
-                }
-              ]
-            },
-            "access": "public",
-            "isInput": true,
-            "isRequired": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "seriesOptions",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "IndexedAccessType",
-                  "objectType": {
-                    "kind": "TypeReference",
-                    "name": "SeriesPartialOptionsMap"
-                  },
-                  "indexType": {
-                    "kind": "TypeReference",
-                    "name": "T"
-                  }
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "data",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "ArrayType",
-                  "elementType": {
-                    "kind": "IndexedAccessType",
-                    "objectType": {
-                      "kind": "TypeReference",
-                      "name": "SeriesDataItemTypeMap",
-                      "typeArguments": [
-                        {
-                          "kind": "TypeReference",
-                          "name": "HorzScaleItem"
-                        }
-                      ]
-                    },
-                    "indexType": {
-                      "kind": "TypeReference",
-                      "name": "T"
-                    }
-                  }
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "customSeriesView",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "ICustomSeriesPaneView",
-                  "typeArguments": [
-                    {
-                      "kind": "TypeReference",
-                      "name": "HorzScaleItem"
-                    }
-                  ]
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
           {
             "kind": "PropertyDeclaration",
             "name": "#inputs",
@@ -803,35 +782,8 @@
               "expression": "inject",
               "arguments": [
                 "TVChartInputsDirective"
-              ]
-            },
-            "modifiers": {
-              "keywords": [
-                "readonly"
-              ]
-            },
-            "access": "private"
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "#element",
-            "initializedValue": {
-              "name": "nativeElement",
-              "expression": {
-                "expression": "inject",
-                "arguments": [
-                  {
-                    "kind": "ExpressionWithTypeArguments",
-                    "expression": "ElementRef",
-                    "typeArguments": [
-                      {
-                        "kind": "TypeReference",
-                        "name": "HTMLElement"
-                      }
-                    ]
-                  }
-                ]
-              }
+              ],
+              "signature": "inject(TVChartInputsDirective)"
             },
             "modifiers": {
               "keywords": [
@@ -839,68 +791,11 @@
               ]
             },
             "access": "private",
-            "injectedDependency": {
-              "type": "ElementRef",
-              "text": "ElementRef<HTMLElement>",
-              "args": [
-                "HTMLElement"
-              ]
-            }
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "#chart",
-            "initializedValue": {
-              "expression": "inject",
-              "arguments": [
-                {
-                  "kind": "ExpressionWithTypeArguments",
-                  "expression": "TVChart",
-                  "typeArguments": [
-                    {
-                      "kind": "TypeReference",
-                      "name": "T"
-                    },
-                    {
-                      "kind": "TypeReference",
-                      "name": "HorzScaleItem"
-                    }
-                  ]
-                }
-              ]
-            },
-            "modifiers": {
-              "keywords": [
-                "readonly"
-              ]
-            },
-            "access": "private",
-            "injectedDependency": {
-              "type": "TVChart",
-              "text": "TVChart<T, HorzScaleItem>",
-              "args": [
-                "T",
-                "HorzScaleItem"
-              ]
-            }
+            "signature": "readonly #inputs = inject(TVChartInputsDirective)"
           },
           {
             "kind": "Constructor",
             "parameters": []
-          },
-          {
-            "kind": "MethodDeclaration",
-            "name": "ngOnInit",
-            "parameters": [],
-            "access": "public",
-            "isLifeCycleMethod": true
-          },
-          {
-            "kind": "MethodDeclaration",
-            "name": "ngOnDestroy",
-            "parameters": [],
-            "access": "public",
-            "isLifeCycleMethod": true
           }
         ],
         "heritageClauses": [
@@ -910,11 +805,13 @@
             "types": [
               {
                 "kind": "ExpressionWithTypeArguments",
-                "expression": "OnInit"
+                "expression": "OnInit",
+                "signature": "OnInit"
               },
               {
                 "kind": "ExpressionWithTypeArguments",
-                "expression": "OnDestroy"
+                "expression": "OnDestroy",
+                "signature": "OnDestroy"
               }
             ]
           }
@@ -933,14 +830,381 @@
                   "tvChartInputsDirectiveHostDef",
                   "tvChartOutputsDirectiveHostDef"
                 ]
-              }
+              },
+              "signature": "@Directive({selector: [tvChart], standalone: true, providers: tvChartProviderWithExistenceCheck, hostDirectives: tvChartInputsDirectiveHostDef,tvChartOutputsDirectiveHostDef})"
             }
           ],
           "keywords": [
             "export"
           ]
         },
-        "isUI": true
+        "methods": [
+          {
+            "kind": "MethodDeclaration",
+            "name": "methodTest",
+            "returnType": "void",
+            "parameters": [
+              {
+                "kind": "Parameter",
+                "name": "chart",
+                "type": {
+                  "kind": "TypeReference",
+                  "name": "TVChart",
+                  "typeArguments": [
+                    {
+                      "kind": "TypeReference",
+                      "name": "T",
+                      "signature": "T"
+                    },
+                    {
+                      "kind": "TypeReference",
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
+                    }
+                  ],
+                  "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart",
+                  "signature": "TVChart<T, HorzScaleItem>"
+                },
+                "signature": "chart: TVChart<T, HorzScaleItem>"
+              },
+              {
+                "kind": "Parameter",
+                "name": "value",
+                "optional": true,
+                "type": "string",
+                "signature": "value?: string"
+              }
+            ],
+            "access": "public",
+            "signature": "methodTest(chart: TVChart<T, HorzScaleItem>, value?: string): void"
+          },
+          {
+            "kind": "MethodDeclaration",
+            "name": "methodTest2",
+            "parameters": [
+              {
+                "kind": "Parameter",
+                "name": "chart",
+                "type": {
+                  "kind": "TypeReference",
+                  "name": "TVChart",
+                  "typeArguments": [
+                    {
+                      "kind": "TypeReference",
+                      "name": "T",
+                      "signature": "T"
+                    },
+                    {
+                      "kind": "TypeReference",
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
+                    }
+                  ],
+                  "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart",
+                  "signature": "TVChart<T, HorzScaleItem>"
+                },
+                "signature": "chart: TVChart<T, HorzScaleItem>"
+              },
+              {
+                "kind": "Parameter",
+                "name": "value",
+                "optional": true,
+                "type": "string",
+                "signature": "value?: string"
+              }
+            ],
+            "access": "public",
+            "returnType": "",
+            "signature": "methodTest2(chart: TVChart<T, HorzScaleItem>, value?: string)"
+          },
+          {
+            "kind": "MethodDeclaration",
+            "name": "methodTest3",
+            "returnType": {
+              "kind": "TypeReference",
+              "name": "TVChart",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "T",
+                  "signature": "T"
+                },
+                {
+                  "kind": "TypeReference",
+                  "name": "HorzScaleItem",
+                  "signature": "HorzScaleItem"
+                }
+              ],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart",
+              "signature": "TVChart<T, HorzScaleItem>"
+            },
+            "parameters": [
+              {
+                "kind": "Parameter",
+                "name": "chart",
+                "type": {
+                  "kind": "TypeReference",
+                  "name": "TVChart",
+                  "typeArguments": [
+                    {
+                      "kind": "TypeReference",
+                      "name": "T",
+                      "signature": "T"
+                    },
+                    {
+                      "kind": "TypeReference",
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
+                    }
+                  ],
+                  "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart",
+                  "signature": "TVChart<T, HorzScaleItem>"
+                },
+                "signature": "chart: TVChart<T, HorzScaleItem>"
+              },
+              {
+                "kind": "Parameter",
+                "name": "value",
+                "type": "string",
+                "initializer": "a",
+                "signature": "value: string = 'a'"
+              }
+            ],
+            "access": "public",
+            "signature": "methodTest3(chart: TVChart<T, HorzScaleItem>, value: string = 'a'): TVChart<T, HorzScaleItem>"
+          }
+        ],
+        "isUI": true,
+        "injectedDependencies": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "#element",
+            "initializedValue": {
+              "name": "nativeElement",
+              "expression": {
+                "expression": "inject",
+                "arguments": [
+                  {
+                    "kind": "ExpressionWithTypeArguments",
+                    "expression": "ElementRef",
+                    "typeArguments": [
+                      {
+                        "kind": "TypeReference",
+                        "name": "HTMLElement",
+                        "signature": "HTMLElement"
+                      }
+                    ],
+                    "signature": "ElementRef<HTMLElement>"
+                  }
+                ],
+                "signature": "inject(ElementRef<HTMLElement>)"
+              },
+              "signature": "inject(ElementRef<HTMLElement>).nativeElement"
+            },
+            "modifiers": {
+              "keywords": [
+                "readonly"
+              ]
+            },
+            "access": "private",
+            "injectedDependency": {
+              "type": "ElementRef",
+              "text": "ElementRef<HTMLElement>",
+              "args": [
+                "HTMLElement"
+              ]
+            },
+            "signature": "readonly #element = inject(ElementRef<HTMLElement>).nativeElement"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "#chart",
+            "initializedValue": {
+              "expression": "inject",
+              "arguments": [
+                {
+                  "kind": "ExpressionWithTypeArguments",
+                  "expression": "TVChart",
+                  "typeArguments": [
+                    {
+                      "kind": "TypeReference",
+                      "name": "T",
+                      "signature": "T"
+                    },
+                    {
+                      "kind": "TypeReference",
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
+                    }
+                  ],
+                  "signature": "TVChart<T, HorzScaleItem>"
+                }
+              ],
+              "signature": "inject(TVChart<T, HorzScaleItem>)"
+            },
+            "modifiers": {
+              "keywords": [
+                "readonly"
+              ]
+            },
+            "access": "private",
+            "injectedDependency": {
+              "type": "TVChart",
+              "text": "TVChart<T, HorzScaleItem>",
+              "args": [
+                "T",
+                "HorzScaleItem"
+              ]
+            },
+            "signature": "readonly #chart = inject(TVChart<T, HorzScaleItem>)"
+          }
+        ],
+        "inputs": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "type",
+            "initializedValue": {
+              "expression": {
+                "name": "required",
+                "expression": "input",
+                "signature": "input.required"
+              },
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "T",
+                  "signature": "T"
+                }
+              ],
+              "arguments": [
+                {
+                  "alias": "tvChart"
+                }
+              ],
+              "signature": "input.required<T>({ alias: tvChart })"
+            },
+            "access": "public",
+            "isInput": true,
+            "isRequired": true,
+            "signature": "type = input.required<T>({ alias: tvChart })"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "seriesOptions",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "IndexedAccessType",
+                  "objectType": {
+                    "kind": "TypeReference",
+                    "name": "SeriesPartialOptionsMap",
+                    "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/seriespartialoptionsmap",
+                    "signature": "SeriesPartialOptionsMap"
+                  },
+                  "indexType": {
+                    "kind": "TypeReference",
+                    "name": "T",
+                    "signature": "T"
+                  },
+                  "signature": "SeriesPartialOptionsMap[T]"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<SeriesPartialOptionsMap[T]>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "seriesOptions = input<SeriesPartialOptionsMap[T]>()"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "data",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "ArrayType",
+                  "elementType": {
+                    "kind": "IndexedAccessType",
+                    "objectType": {
+                      "kind": "TypeReference",
+                      "name": "SeriesDataItemTypeMap",
+                      "typeArguments": [
+                        {
+                          "kind": "TypeReference",
+                          "name": "HorzScaleItem",
+                          "signature": "HorzScaleItem"
+                        }
+                      ],
+                      "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/seriesdataitemtypemap",
+                      "signature": "SeriesDataItemTypeMap<HorzScaleItem>"
+                    },
+                    "indexType": {
+                      "kind": "TypeReference",
+                      "name": "T",
+                      "signature": "T"
+                    },
+                    "signature": "SeriesDataItemTypeMap<HorzScaleItem>[T]"
+                  },
+                  "signature": "SeriesDataItemTypeMap<HorzScaleItem>[T][]"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<SeriesDataItemTypeMap<HorzScaleItem>[T][]>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "data = input<SeriesDataItemTypeMap<HorzScaleItem>[T][]>()"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "customSeriesView",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "ICustomSeriesPaneView",
+                  "typeArguments": [
+                    {
+                      "kind": "TypeReference",
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
+                    }
+                  ],
+                  "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/icustomseriespaneview",
+                  "signature": "ICustomSeriesPaneView<HorzScaleItem>"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<ICustomSeriesPaneView<HorzScaleItem>>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "customSeriesView = input<ICustomSeriesPaneView<HorzScaleItem>>()"
+          }
+        ],
+        "lifeCycleMethods": [
+          {
+            "kind": "MethodDeclaration",
+            "name": "ngOnInit",
+            "parameters": [],
+            "access": "public",
+            "returnType": "void",
+            "isLifeCycleMethod": true,
+            "signature": "ngOnInit(): void"
+          },
+          {
+            "kind": "MethodDeclaration",
+            "name": "ngOnDestroy",
+            "parameters": [],
+            "access": "public",
+            "returnType": "void",
+            "isLifeCycleMethod": true,
+            "signature": "ngOnDestroy(): void"
+          }
+        ]
       }
     ]
   },
@@ -1032,93 +1296,14 @@
             "name": "HorzScaleItem",
             "default": {
               "kind": "TypeReference",
-              "name": "Time"
-            }
+              "name": "Time",
+              "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#time",
+              "signature": "Time"
+            },
+            "signature": "HorzScaleItem = [object Object]"
           }
         ],
-        "members": [
-          {
-            "kind": "PropertyDeclaration",
-            "name": "seriesOptions",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "CustomSeriesPartialOptions"
-                }
-              ],
-              "arguments": [
-                {}
-              ]
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "data",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "ArrayType",
-                  "elementType": {
-                    "kind": "TypeReference",
-                    "name": "CustomData",
-                    "typeArguments": [
-                      {
-                        "kind": "TypeReference",
-                        "name": "HorzScaleItem"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "customSeriesView",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "ICustomSeriesPaneView",
-                  "typeArguments": [
-                    {
-                      "kind": "TypeReference",
-                      "name": "HorzScaleItem"
-                    }
-                  ]
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "inputs",
-            "initializedValue": {
-              "expression": "inject",
-              "arguments": [
-                "TVChartInputsDirective"
-              ]
-            },
-            "modifiers": {
-              "keywords": [
-                "readonly"
-              ]
-            },
-            "access": "public"
-          }
-        ],
+        "members": [],
         "modifiers": {
           "decorators": [
             {
@@ -1140,16 +1325,120 @@
                 "styleUrl": "./custom-chart.component.scss",
                 "changeDetection": {
                   "name": "OnPush",
-                  "expression": "ChangeDetectionStrategy"
+                  "expression": "ChangeDetectionStrategy",
+                  "signature": "ChangeDetectionStrategy.OnPush"
                 }
-              }
+              },
+              "signature": "@Component({selector: tv-custom-series-chart, standalone: true, imports: TVChartDirective, providers: tvChartProvider, hostDirectives: tvChartInputsDirectiveHostDef,tvChartOutputsDirectiveHostDef, templateUrl: ./custom-chart.component.html, styleUrl: ./custom-chart.component.scss, changeDetection: [object Object]})"
             }
           ],
           "keywords": [
             "export"
           ]
         },
-        "isUI": true
+        "properties": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "inputs",
+            "initializedValue": {
+              "expression": "inject",
+              "arguments": [
+                "TVChartInputsDirective"
+              ],
+              "signature": "inject(TVChartInputsDirective)"
+            },
+            "modifiers": {
+              "keywords": [
+                "readonly"
+              ]
+            },
+            "access": "public",
+            "signature": "readonly inputs = inject(TVChartInputsDirective)"
+          }
+        ],
+        "isUI": true,
+        "inputs": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "seriesOptions",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "CustomSeriesPartialOptions",
+                  "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#customseriespartialoptions",
+                  "signature": "CustomSeriesPartialOptions"
+                }
+              ],
+              "arguments": [
+                {}
+              ],
+              "signature": "input<CustomSeriesPartialOptions>({  })"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "seriesOptions = input<CustomSeriesPartialOptions>({  })"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "data",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "ArrayType",
+                  "elementType": {
+                    "kind": "TypeReference",
+                    "name": "CustomData",
+                    "typeArguments": [
+                      {
+                        "kind": "TypeReference",
+                        "name": "HorzScaleItem",
+                        "signature": "HorzScaleItem"
+                      }
+                    ],
+                    "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/customdata",
+                    "signature": "CustomData<HorzScaleItem>"
+                  },
+                  "signature": "CustomData<HorzScaleItem>[]"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<CustomData<HorzScaleItem>[]>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "data = input<CustomData<HorzScaleItem>[]>()"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "customSeriesView",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "ICustomSeriesPaneView",
+                  "typeArguments": [
+                    {
+                      "kind": "TypeReference",
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
+                    }
+                  ],
+                  "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/icustomseriespaneview",
+                  "signature": "ICustomSeriesPaneView<HorzScaleItem>"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<ICustomSeriesPaneView<HorzScaleItem>>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "customSeriesView = input<ICustomSeriesPaneView<HorzScaleItem>>()"
+          }
+        ]
       }
     ]
   },
@@ -1240,7 +1529,7 @@
       {
         "name": "TVChart",
         "module": "../../../core",
-        "resolvedModulePath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core"
+        "resolvedModulePath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart"
       },
       {
         "name": "tvChartOutputsDirectiveHostDef",
@@ -1255,185 +1544,11 @@
         "typeParameters": [
           {
             "kind": "TypeParameter",
-            "name": "HorzScaleItem"
+            "name": "HorzScaleItem",
+            "signature": "HorzScaleItem"
           }
         ],
         "members": [
-          {
-            "kind": "PropertyDeclaration",
-            "name": "seriesOptions",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "CandlestickSeriesPartialOptions"
-                }
-              ],
-              "arguments": [
-                {}
-              ]
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "volumeOptions",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "HistogramSeriesPartialOptions"
-                }
-              ],
-              "arguments": [
-                "DEFAULT_HISTOGRAM_SERIES_OPTIONS"
-              ]
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "data",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "ArrayType",
-                  "elementType": {
-                    "kind": "TypeReference",
-                    "name": "CandlestickData",
-                    "typeArguments": [
-                      {
-                        "kind": "TypeReference",
-                        "name": "HorzScaleItem"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "volume",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "ArrayType",
-                  "elementType": {
-                    "kind": "TypeReference",
-                    "name": "HistogramData",
-                    "typeArguments": [
-                      {
-                        "kind": "TypeReference",
-                        "name": "HorzScaleItem"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "chart",
-            "initializedValue": {
-              "expression": "viewChild",
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "TVChartDirective",
-                  "typeArguments": [
-                    {
-                      "kind": "LiteralType",
-                      "value": "Candlestick"
-                    },
-                    {
-                      "kind": "TypeReference",
-                      "name": "HorzScaleItem"
-                    }
-                  ]
-                },
-                {
-                  "kind": "TypeReference",
-                  "name": "TVChart",
-                  "typeArguments": [
-                    {
-                      "kind": "LiteralType",
-                      "value": "Candlestick"
-                    },
-                    {
-                      "kind": "TypeReference",
-                      "name": "HorzScaleItem"
-                    }
-                  ]
-                }
-              ],
-              "arguments": [
-                {
-                  "kind": "ExpressionWithTypeArguments",
-                  "expression": "TVChartDirective",
-                  "typeArguments": [
-                    {
-                      "kind": "LiteralType",
-                      "value": "Candlestick"
-                    },
-                    {
-                      "kind": "TypeReference",
-                      "name": "HorzScaleItem"
-                    }
-                  ]
-                },
-                {
-                  "read": "TVChart"
-                }
-              ]
-            },
-            "access": "public"
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "inputs",
-            "initializedValue": {
-              "expression": "inject",
-              "arguments": [
-                {
-                  "kind": "ExpressionWithTypeArguments",
-                  "expression": "TVChartInputsDirective",
-                  "typeArguments": [
-                    {
-                      "kind": "TypeReference",
-                      "name": "HorzScaleItem"
-                    }
-                  ]
-                }
-              ]
-            },
-            "modifiers": {
-              "keywords": [
-                "readonly"
-              ]
-            },
-            "access": "public",
-            "injectedDependency": {
-              "type": "TVChartInputsDirective",
-              "text": "TVChartInputsDirective<HorzScaleItem>",
-              "args": [
-                "HorzScaleItem"
-              ]
-            }
-          },
           {
             "kind": "PropertyDeclaration",
             "name": "#histogramSeries",
@@ -1443,16 +1558,21 @@
               "typeArguments": [
                 {
                   "kind": "LiteralType",
-                  "value": "Histogram"
+                  "value": "Histogram",
+                  "signature": "Histogram"
                 },
                 {
                   "kind": "TypeReference",
-                  "name": "HorzScaleItem"
+                  "name": "HorzScaleItem",
+                  "signature": "HorzScaleItem"
                 }
-              ]
+              ],
+              "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/iseriesapi",
+              "signature": "ISeriesApi<Histogram, HorzScaleItem>"
             },
             "optional": true,
-            "access": "private"
+            "access": "private",
+            "signature": "#histogramSeries?: ISeriesApi<Histogram, HorzScaleItem>"
           },
           {
             "kind": "Constructor",
@@ -1461,7 +1581,7 @@
           {
             "kind": "MethodDeclaration",
             "name": "#setVolume",
-            "type": "void",
+            "returnType": "void",
             "parameters": [
               {
                 "kind": "Parameter",
@@ -1474,21 +1594,28 @@
                     "typeArguments": [
                       {
                         "kind": "TypeReference",
-                        "name": "HorzScaleItem"
+                        "name": "HorzScaleItem",
+                        "signature": "HorzScaleItem"
                       }
-                    ]
-                  }
-                }
+                    ],
+                    "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/histogramdata",
+                    "signature": "HistogramData<HorzScaleItem>"
+                  },
+                  "signature": "HistogramData<HorzScaleItem>[]"
+                },
+                "signature": "data: [object Object]"
               }
             ],
-            "access": "private"
+            "access": "private",
+            "signature": "#setVolume(data: [object Object]): void"
           },
           {
             "kind": "MethodDeclaration",
             "name": "#initialiseHistogram",
-            "type": "void",
+            "returnType": "void",
             "parameters": [],
-            "access": "private"
+            "access": "private",
+            "signature": "#initialiseHistogram(): void"
           }
         ],
         "modifiers": {
@@ -1510,14 +1637,231 @@
                 ],
                 "templateUrl": "./candlestick-chart.component.html",
                 "styleUrl": "./candlestick-chart.component.scss"
-              }
+              },
+              "signature": "@Component({selector: tv-candlestick-chart, standalone: true, imports: TVChartDirective, providers: tvChartProvider, hostDirectives: tvChartInputsDirectiveHostDef,tvChartOutputsDirectiveHostDef, templateUrl: ./candlestick-chart.component.html, styleUrl: ./candlestick-chart.component.scss})"
             }
           ],
           "keywords": [
             "export"
           ]
         },
-        "isUI": true
+        "properties": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "chart",
+            "initializedValue": {
+              "expression": "viewChild",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "TVChartDirective",
+                  "typeArguments": [
+                    {
+                      "kind": "LiteralType",
+                      "value": "Candlestick",
+                      "signature": "Candlestick"
+                    },
+                    {
+                      "kind": "TypeReference",
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
+                    }
+                  ],
+                  "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart.directive",
+                  "signature": "TVChartDirective<Candlestick, HorzScaleItem>"
+                },
+                {
+                  "kind": "TypeReference",
+                  "name": "TVChart",
+                  "typeArguments": [
+                    {
+                      "kind": "LiteralType",
+                      "value": "Candlestick",
+                      "signature": "Candlestick"
+                    },
+                    {
+                      "kind": "TypeReference",
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
+                    }
+                  ],
+                  "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart",
+                  "signature": "TVChart<Candlestick, HorzScaleItem>"
+                }
+              ],
+              "arguments": [
+                {
+                  "kind": "ExpressionWithTypeArguments",
+                  "expression": "TVChartDirective",
+                  "typeArguments": [
+                    {
+                      "kind": "LiteralType",
+                      "value": "Candlestick",
+                      "signature": "Candlestick"
+                    },
+                    {
+                      "kind": "TypeReference",
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
+                    }
+                  ],
+                  "signature": "TVChartDirective<Candlestick, HorzScaleItem>"
+                },
+                {
+                  "read": "TVChart"
+                }
+              ],
+              "signature": "viewChild<TVChartDirective<Candlestick, HorzScaleItem>, TVChart<Candlestick, HorzScaleItem>>(TVChartDirective<Candlestick, HorzScaleItem>, { read: TVChart })"
+            },
+            "access": "public",
+            "signature": "chart = viewChild<TVChartDirective<Candlestick, HorzScaleItem>, TVChart<Candlestick, HorzScaleItem>>(TVChartDirective<Candlestick, HorzScaleItem>, { read: TVChart })"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "inputs",
+            "initializedValue": {
+              "expression": "inject",
+              "arguments": [
+                {
+                  "kind": "ExpressionWithTypeArguments",
+                  "expression": "TVChartInputsDirective",
+                  "typeArguments": [
+                    {
+                      "kind": "TypeReference",
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
+                    }
+                  ],
+                  "signature": "TVChartInputsDirective<HorzScaleItem>"
+                }
+              ],
+              "signature": "inject(TVChartInputsDirective<HorzScaleItem>)"
+            },
+            "modifiers": {
+              "keywords": [
+                "readonly"
+              ]
+            },
+            "access": "public",
+            "injectedDependency": {
+              "type": "TVChartInputsDirective",
+              "text": "TVChartInputsDirective<HorzScaleItem>",
+              "args": [
+                "HorzScaleItem"
+              ]
+            },
+            "signature": "readonly inputs = inject(TVChartInputsDirective<HorzScaleItem>)"
+          }
+        ],
+        "isUI": true,
+        "inputs": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "seriesOptions",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "CandlestickSeriesPartialOptions",
+                  "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#candlestickseriespartialoptions",
+                  "signature": "CandlestickSeriesPartialOptions"
+                }
+              ],
+              "arguments": [
+                {}
+              ],
+              "signature": "input<CandlestickSeriesPartialOptions>({  })"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "seriesOptions = input<CandlestickSeriesPartialOptions>({  })"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "volumeOptions",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "HistogramSeriesPartialOptions",
+                  "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#histogramseriespartialoptions",
+                  "signature": "HistogramSeriesPartialOptions"
+                }
+              ],
+              "arguments": [
+                "DEFAULT_HISTOGRAM_SERIES_OPTIONS"
+              ],
+              "signature": "input<HistogramSeriesPartialOptions>(DEFAULT_HISTOGRAM_SERIES_OPTIONS)"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "volumeOptions = input<HistogramSeriesPartialOptions>(DEFAULT_HISTOGRAM_SERIES_OPTIONS)"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "data",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "ArrayType",
+                  "elementType": {
+                    "kind": "TypeReference",
+                    "name": "CandlestickData",
+                    "typeArguments": [
+                      {
+                        "kind": "TypeReference",
+                        "name": "HorzScaleItem",
+                        "signature": "HorzScaleItem"
+                      }
+                    ],
+                    "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/candlestickdata",
+                    "signature": "CandlestickData<HorzScaleItem>"
+                  },
+                  "signature": "CandlestickData<HorzScaleItem>[]"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<CandlestickData<HorzScaleItem>[]>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "data = input<CandlestickData<HorzScaleItem>[]>()"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "volume",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "ArrayType",
+                  "elementType": {
+                    "kind": "TypeReference",
+                    "name": "HistogramData",
+                    "typeArguments": [
+                      {
+                        "kind": "TypeReference",
+                        "name": "HorzScaleItem",
+                        "signature": "HorzScaleItem"
+                      }
+                    ],
+                    "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/histogramdata",
+                    "signature": "HistogramData<HorzScaleItem>"
+                  },
+                  "signature": "HistogramData<HorzScaleItem>[]"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<HistogramData<HorzScaleItem>[]>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "volume = input<HistogramData<HorzScaleItem>[]>()"
+          }
+        ]
       }
     ]
   },
@@ -1597,67 +1941,7 @@
       {
         "kind": "ClassDeclaration",
         "name": "TVHistogramChartComponent",
-        "members": [
-          {
-            "kind": "PropertyDeclaration",
-            "name": "seriesOptions",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "HistogramSeriesPartialOptions"
-                }
-              ],
-              "arguments": [
-                "DEFAULT_HISTOGRAM_SERIES_OPTIONS"
-              ]
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "data",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "ArrayType",
-                  "elementType": {
-                    "kind": "TypeReference",
-                    "name": "HistogramData",
-                    "typeArguments": [
-                      {
-                        "kind": "TypeReference",
-                        "name": "Time"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "inputs",
-            "initializedValue": {
-              "expression": "inject",
-              "arguments": [
-                "TVChartInputsDirective"
-              ]
-            },
-            "modifiers": {
-              "keywords": [
-                "readonly"
-              ]
-            },
-            "access": "public"
-          }
-        ],
+        "members": [],
         "modifiers": {
           "decorators": [
             {
@@ -1679,16 +1963,94 @@
                 "styleUrl": "./histogram-chart.component.scss",
                 "changeDetection": {
                   "name": "OnPush",
-                  "expression": "ChangeDetectionStrategy"
+                  "expression": "ChangeDetectionStrategy",
+                  "signature": "ChangeDetectionStrategy.OnPush"
                 }
-              }
+              },
+              "signature": "@Component({selector: tv-histogram-chart, standalone: true, imports: TVChartDirective, providers: tvChartProvider, hostDirectives: tvChartInputsDirectiveHostDef,tvChartOutputsDirectiveHostDef, templateUrl: ./histogram-chart.component.html, styleUrl: ./histogram-chart.component.scss, changeDetection: [object Object]})"
             }
           ],
           "keywords": [
             "export"
           ]
         },
-        "isUI": true
+        "properties": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "inputs",
+            "initializedValue": {
+              "expression": "inject",
+              "arguments": [
+                "TVChartInputsDirective"
+              ],
+              "signature": "inject(TVChartInputsDirective)"
+            },
+            "modifiers": {
+              "keywords": [
+                "readonly"
+              ]
+            },
+            "access": "public",
+            "signature": "readonly inputs = inject(TVChartInputsDirective)"
+          }
+        ],
+        "isUI": true,
+        "inputs": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "seriesOptions",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "HistogramSeriesPartialOptions",
+                  "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#histogramseriespartialoptions",
+                  "signature": "HistogramSeriesPartialOptions"
+                }
+              ],
+              "arguments": [
+                "DEFAULT_HISTOGRAM_SERIES_OPTIONS"
+              ],
+              "signature": "input<HistogramSeriesPartialOptions>(DEFAULT_HISTOGRAM_SERIES_OPTIONS)"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "seriesOptions = input<HistogramSeriesPartialOptions>(DEFAULT_HISTOGRAM_SERIES_OPTIONS)"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "data",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "ArrayType",
+                  "elementType": {
+                    "kind": "TypeReference",
+                    "name": "HistogramData",
+                    "typeArguments": [
+                      {
+                        "kind": "TypeReference",
+                        "name": "Time",
+                        "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#time",
+                        "signature": "Time"
+                      }
+                    ],
+                    "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/histogramdata",
+                    "signature": "HistogramData<Time>"
+                  },
+                  "signature": "HistogramData<Time>[]"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<HistogramData<Time>[]>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "data = input<HistogramData<Time>[]>()"
+          }
+        ]
       }
     ]
   },
@@ -1768,67 +2130,7 @@
       {
         "kind": "ClassDeclaration",
         "name": "TVLineChartDirective",
-        "members": [
-          {
-            "kind": "PropertyDeclaration",
-            "name": "seriesOptions",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "LineSeriesPartialOptions"
-                }
-              ],
-              "arguments": [
-                {}
-              ]
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "data",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "ArrayType",
-                  "elementType": {
-                    "kind": "TypeReference",
-                    "name": "LineData",
-                    "typeArguments": [
-                      {
-                        "kind": "TypeReference",
-                        "name": "Time"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "inputs",
-            "initializedValue": {
-              "expression": "inject",
-              "arguments": [
-                "TVChartInputsDirective"
-              ]
-            },
-            "modifiers": {
-              "keywords": [
-                "readonly"
-              ]
-            },
-            "access": "public"
-          }
-        ],
+        "members": [],
         "modifiers": {
           "decorators": [
             {
@@ -1850,16 +2152,94 @@
                 "styleUrl": "./line-chart.component.scss",
                 "changeDetection": {
                   "name": "OnPush",
-                  "expression": "ChangeDetectionStrategy"
+                  "expression": "ChangeDetectionStrategy",
+                  "signature": "ChangeDetectionStrategy.OnPush"
                 }
-              }
+              },
+              "signature": "@Component({selector: tv-line-chart, standalone: true, imports: TVChartDirective, providers: tvChartProvider, hostDirectives: tvChartInputsDirectiveHostDef,tvChartOutputsDirectiveHostDef, templateUrl: ./line-chart.component.html, styleUrl: ./line-chart.component.scss, changeDetection: [object Object]})"
             }
           ],
           "keywords": [
             "export"
           ]
         },
-        "isUI": true
+        "properties": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "inputs",
+            "initializedValue": {
+              "expression": "inject",
+              "arguments": [
+                "TVChartInputsDirective"
+              ],
+              "signature": "inject(TVChartInputsDirective)"
+            },
+            "modifiers": {
+              "keywords": [
+                "readonly"
+              ]
+            },
+            "access": "public",
+            "signature": "readonly inputs = inject(TVChartInputsDirective)"
+          }
+        ],
+        "isUI": true,
+        "inputs": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "seriesOptions",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "LineSeriesPartialOptions",
+                  "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#lineseriespartialoptions",
+                  "signature": "LineSeriesPartialOptions"
+                }
+              ],
+              "arguments": [
+                {}
+              ],
+              "signature": "input<LineSeriesPartialOptions>({  })"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "seriesOptions = input<LineSeriesPartialOptions>({  })"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "data",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "ArrayType",
+                  "elementType": {
+                    "kind": "TypeReference",
+                    "name": "LineData",
+                    "typeArguments": [
+                      {
+                        "kind": "TypeReference",
+                        "name": "Time",
+                        "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#time",
+                        "signature": "Time"
+                      }
+                    ],
+                    "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/linedata",
+                    "signature": "LineData<Time>"
+                  },
+                  "signature": "LineData<Time>[]"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<LineData<Time>[]>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "data = input<LineData<Time>[]>()"
+          }
+        ]
       }
     ]
   },
@@ -1939,67 +2319,7 @@
       {
         "kind": "ClassDeclaration",
         "name": "TVBarChartDirective",
-        "members": [
-          {
-            "kind": "PropertyDeclaration",
-            "name": "seriesOptions",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "BarSeriesPartialOptions"
-                }
-              ],
-              "arguments": [
-                "DEFAULT_BAR_SERIES_OPTIONS"
-              ]
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "data",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "ArrayType",
-                  "elementType": {
-                    "kind": "TypeReference",
-                    "name": "BarData",
-                    "typeArguments": [
-                      {
-                        "kind": "TypeReference",
-                        "name": "Time"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "inputs",
-            "initializedValue": {
-              "expression": "inject",
-              "arguments": [
-                "TVChartInputsDirective"
-              ]
-            },
-            "modifiers": {
-              "keywords": [
-                "readonly"
-              ]
-            },
-            "access": "public"
-          }
-        ],
+        "members": [],
         "modifiers": {
           "decorators": [
             {
@@ -2021,16 +2341,94 @@
                 "styleUrl": "./bar-chart.component.scss",
                 "changeDetection": {
                   "name": "OnPush",
-                  "expression": "ChangeDetectionStrategy"
+                  "expression": "ChangeDetectionStrategy",
+                  "signature": "ChangeDetectionStrategy.OnPush"
                 }
-              }
+              },
+              "signature": "@Component({selector: tv-bar-chart, standalone: true, imports: TVChartDirective, providers: tvChartProvider, hostDirectives: tvChartInputsDirectiveHostDef,tvChartOutputsDirectiveHostDef, templateUrl: ./bar-chart.component.html, styleUrl: ./bar-chart.component.scss, changeDetection: [object Object]})"
             }
           ],
           "keywords": [
             "export"
           ]
         },
-        "isUI": true
+        "properties": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "inputs",
+            "initializedValue": {
+              "expression": "inject",
+              "arguments": [
+                "TVChartInputsDirective"
+              ],
+              "signature": "inject(TVChartInputsDirective)"
+            },
+            "modifiers": {
+              "keywords": [
+                "readonly"
+              ]
+            },
+            "access": "public",
+            "signature": "readonly inputs = inject(TVChartInputsDirective)"
+          }
+        ],
+        "isUI": true,
+        "inputs": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "seriesOptions",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "BarSeriesPartialOptions",
+                  "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#barseriespartialoptions",
+                  "signature": "BarSeriesPartialOptions"
+                }
+              ],
+              "arguments": [
+                "DEFAULT_BAR_SERIES_OPTIONS"
+              ],
+              "signature": "input<BarSeriesPartialOptions>(DEFAULT_BAR_SERIES_OPTIONS)"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "seriesOptions = input<BarSeriesPartialOptions>(DEFAULT_BAR_SERIES_OPTIONS)"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "data",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "ArrayType",
+                  "elementType": {
+                    "kind": "TypeReference",
+                    "name": "BarData",
+                    "typeArguments": [
+                      {
+                        "kind": "TypeReference",
+                        "name": "Time",
+                        "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#time",
+                        "signature": "Time"
+                      }
+                    ],
+                    "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/bardata",
+                    "signature": "BarData<Time>"
+                  },
+                  "signature": "BarData<Time>[]"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<BarData<Time>[]>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "data = input<BarData<Time>[]>()"
+          }
+        ]
       }
     ]
   },
@@ -2110,67 +2508,7 @@
       {
         "kind": "ClassDeclaration",
         "name": "TVBaselineChartComponent",
-        "members": [
-          {
-            "kind": "PropertyDeclaration",
-            "name": "seriesOptions",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "BaselineSeriesPartialOptions"
-                }
-              ],
-              "arguments": [
-                {}
-              ]
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "data",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "ArrayType",
-                  "elementType": {
-                    "kind": "TypeReference",
-                    "name": "BaselineData",
-                    "typeArguments": [
-                      {
-                        "kind": "TypeReference",
-                        "name": "Time"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "inputs",
-            "initializedValue": {
-              "expression": "inject",
-              "arguments": [
-                "TVChartInputsDirective"
-              ]
-            },
-            "modifiers": {
-              "keywords": [
-                "readonly"
-              ]
-            },
-            "access": "public"
-          }
-        ],
+        "members": [],
         "modifiers": {
           "decorators": [
             {
@@ -2192,16 +2530,94 @@
                 "styleUrl": "./baseline-chart.component.scss",
                 "changeDetection": {
                   "name": "OnPush",
-                  "expression": "ChangeDetectionStrategy"
+                  "expression": "ChangeDetectionStrategy",
+                  "signature": "ChangeDetectionStrategy.OnPush"
                 }
-              }
+              },
+              "signature": "@Component({selector: tv-baseline-chart, standalone: true, imports: TVChartDirective, providers: tvChartProvider, hostDirectives: tvChartInputsDirectiveHostDef,tvChartOutputsDirectiveHostDef, templateUrl: ./baseline-chart.component.html, styleUrl: ./baseline-chart.component.scss, changeDetection: [object Object]})"
             }
           ],
           "keywords": [
             "export"
           ]
         },
-        "isUI": true
+        "properties": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "inputs",
+            "initializedValue": {
+              "expression": "inject",
+              "arguments": [
+                "TVChartInputsDirective"
+              ],
+              "signature": "inject(TVChartInputsDirective)"
+            },
+            "modifiers": {
+              "keywords": [
+                "readonly"
+              ]
+            },
+            "access": "public",
+            "signature": "readonly inputs = inject(TVChartInputsDirective)"
+          }
+        ],
+        "isUI": true,
+        "inputs": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "seriesOptions",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "BaselineSeriesPartialOptions",
+                  "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#baselineseriespartialoptions",
+                  "signature": "BaselineSeriesPartialOptions"
+                }
+              ],
+              "arguments": [
+                {}
+              ],
+              "signature": "input<BaselineSeriesPartialOptions>({  })"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "seriesOptions = input<BaselineSeriesPartialOptions>({  })"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "data",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "ArrayType",
+                  "elementType": {
+                    "kind": "TypeReference",
+                    "name": "BaselineData",
+                    "typeArguments": [
+                      {
+                        "kind": "TypeReference",
+                        "name": "Time",
+                        "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#time",
+                        "signature": "Time"
+                      }
+                    ],
+                    "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/baselinedata",
+                    "signature": "BaselineData<Time>"
+                  },
+                  "signature": "BaselineData<Time>[]"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<BaselineData<Time>[]>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "data = input<BaselineData<Time>[]>()"
+          }
+        ]
       }
     ]
   },
@@ -2281,67 +2697,7 @@
       {
         "kind": "ClassDeclaration",
         "name": "TVAreaChartComponent",
-        "members": [
-          {
-            "kind": "PropertyDeclaration",
-            "name": "seriesOptions",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "TypeReference",
-                  "name": "AreaSeriesPartialOptions"
-                }
-              ],
-              "arguments": [
-                {}
-              ]
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "data",
-            "initializedValue": {
-              "expression": "input",
-              "typeArguments": [
-                {
-                  "kind": "ArrayType",
-                  "elementType": {
-                    "kind": "TypeReference",
-                    "name": "AreaData",
-                    "typeArguments": [
-                      {
-                        "kind": "TypeReference",
-                        "name": "Time"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "arguments": []
-            },
-            "access": "public",
-            "isInput": true
-          },
-          {
-            "kind": "PropertyDeclaration",
-            "name": "inputs",
-            "initializedValue": {
-              "expression": "inject",
-              "arguments": [
-                "TVChartInputsDirective"
-              ]
-            },
-            "modifiers": {
-              "keywords": [
-                "readonly"
-              ]
-            },
-            "access": "public"
-          }
-        ],
+        "members": [],
         "modifiers": {
           "decorators": [
             {
@@ -2363,16 +2719,94 @@
                 "styleUrl": "./area-chart.component.scss",
                 "changeDetection": {
                   "name": "OnPush",
-                  "expression": "ChangeDetectionStrategy"
+                  "expression": "ChangeDetectionStrategy",
+                  "signature": "ChangeDetectionStrategy.OnPush"
                 }
-              }
+              },
+              "signature": "@Component({selector: tv-area-chart, standalone: true, imports: TVChartDirective, providers: tvChartProvider, hostDirectives: tvChartInputsDirectiveHostDef,tvChartOutputsDirectiveHostDef, templateUrl: ./area-chart.component.html, styleUrl: ./area-chart.component.scss, changeDetection: [object Object]})"
             }
           ],
           "keywords": [
             "export"
           ]
         },
-        "isUI": true
+        "properties": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "inputs",
+            "initializedValue": {
+              "expression": "inject",
+              "arguments": [
+                "TVChartInputsDirective"
+              ],
+              "signature": "inject(TVChartInputsDirective)"
+            },
+            "modifiers": {
+              "keywords": [
+                "readonly"
+              ]
+            },
+            "access": "public",
+            "signature": "readonly inputs = inject(TVChartInputsDirective)"
+          }
+        ],
+        "isUI": true,
+        "inputs": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "seriesOptions",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "AreaSeriesPartialOptions",
+                  "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#areaseriespartialoptions",
+                  "signature": "AreaSeriesPartialOptions"
+                }
+              ],
+              "arguments": [
+                {}
+              ],
+              "signature": "input<AreaSeriesPartialOptions>({  })"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "seriesOptions = input<AreaSeriesPartialOptions>({  })"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "data",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                {
+                  "kind": "ArrayType",
+                  "elementType": {
+                    "kind": "TypeReference",
+                    "name": "AreaData",
+                    "typeArguments": [
+                      {
+                        "kind": "TypeReference",
+                        "name": "Time",
+                        "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api#time",
+                        "signature": "Time"
+                      }
+                    ],
+                    "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/areadata",
+                    "signature": "AreaData<Time>"
+                  },
+                  "signature": "AreaData<Time>[]"
+                }
+              ],
+              "arguments": [],
+              "signature": "input<AreaData<Time>[]>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "data = input<AreaData<Time>[]>()"
+          }
+        ]
       }
     ]
   }

@@ -5,7 +5,9 @@ import {
   PropertyDeclaration,
   findChildNodeOfKind,
   extendDefinition,
-  propertyDeclarationDefinition
+  propertyDeclarationDefinition,
+  DeclarationKind,
+  isPropertyDeclaration
 } from "@jamesbenrobb/ts-ast-parser";
 import {isInjectedDependency, isInput, isOutput, isRequiredInput} from "../helpers";
 
@@ -32,6 +34,23 @@ export const ngPropertyDeclarationDefinition: DeclarationDefinition<NgPropertyDe
     ]
   }
 )
+
+
+export function isNgPropertyDeclaration(dec: DeclarationKind<any>): dec is NgPropertyDeclaration {
+  return isPropertyDeclaration(dec);
+}
+
+export function isInputProperty(dec: DeclarationKind<any>): dec is NgPropertyDeclaration & {isInput: true} {
+  return isNgPropertyDeclaration(dec) && !!dec.isInput;
+}
+
+export function isOutputProperty(dec: DeclarationKind<any>): dec is NgPropertyDeclaration & {isOutput: true} {
+  return isNgPropertyDeclaration(dec) && !!dec.isOutput;
+}
+
+export function isInjectedProperty(dec: DeclarationKind<any>): dec is NgPropertyDeclaration & {injectedDependency: true} {
+  return isNgPropertyDeclaration(dec) && !!dec.injectedDependency;
+}
 
 
 function addInjectedFlag(
