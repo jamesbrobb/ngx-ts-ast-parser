@@ -18,11 +18,11 @@ export type NgClassElement = NgPropertyDeclaration | NgMethodDeclaration | GetAc
 
 export type NgClassDeclaration = ClassDeclaration & {
     isUI: boolean,
-    members: NgClassElement[],
-    inputs: NgPropertyDeclaration[] & {isInput: true}[],
-    outputs: NgPropertyDeclaration[] & {isOutput: true}[],
-    lifeCycleMethods: NgMethodDeclaration[] & {isLifeCycleMethod: true}[],
-    injectedDependencies: NgPropertyDeclaration[] & {injectedDependency: true}[],
+    members?: NgClassElement[],
+    inputs?: NgPropertyDeclaration[] & {isInput: true}[],
+    outputs?: NgPropertyDeclaration[] & {isOutput: true}[],
+    lifeCycleMethods?: NgMethodDeclaration[] & {isLifeCycleMethod: true}[],
+    injectedDependencies?: NgPropertyDeclaration[] & {injectedDependency: true}[],
 }
 
 
@@ -52,7 +52,7 @@ function addUIFlag(classDeclaration: NgClassDeclaration): NgClassDeclaration {
 }
 
 function addInjectedProperties(dec: NgClassDeclaration): NgClassDeclaration {
-  const injectedDependencies = dec.members.filter(isInjectedProperty);
+  const injectedDependencies = dec.members?.filter(isInjectedProperty);
 
   if(injectedDependencies && injectedDependencies.length > 0) {
     dec.injectedDependencies = injectedDependencies
@@ -132,10 +132,14 @@ function filterMethods(dec: NgClassDeclaration): NgClassDeclaration {
 }
 
 function filterMembers(dec: NgClassDeclaration): NgClassDeclaration {
-  dec.members = dec.members.filter(arg => !dec.inputs?.includes(arg as any))
+  dec.members = dec.members?.filter(arg => !dec.inputs?.includes(arg as any))
     .filter(arg => !dec.outputs?.includes(arg as any))
     .filter(arg => !dec.lifeCycleMethods?.includes(arg as any))
     .filter(arg => !dec.injectedDependencies?.includes(arg as any));
+
+  if(!dec.members || !dec.members.length) {
+    delete dec.members;
+  }
 
   return dec;
 }
