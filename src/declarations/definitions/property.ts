@@ -7,17 +7,14 @@ import {
   extendDefinition,
   propertyDeclarationDefinition,
   DeclarationKind,
-  isPropertyDeclaration
+  isPropertyDeclaration, Maps
 } from "@jamesbenrobb/ts-ast-parser";
 import {isInjectedDependency, isInput, isOutput, isRequiredInput} from "../helpers";
+import {InjectedDependency} from "./injected-dependency";
 
 
 export type NgPropertyDeclaration = PropertyDeclaration & {
-  injectedDependency?: {
-    type: string,
-    text: string,
-    args?: string[]
-  }
+  injectedDependency?: InjectedDependency
   isInput?: boolean
   isRequired?: boolean
   isOutput?: boolean
@@ -57,10 +54,15 @@ function addInjectedFlag(
   property: NgPropertyDeclaration,
   node: ts.PropertyDeclaration,
   sourceFile: ts.SourceFile,
-  _parser: Parser<any, any>
+  parser: Parser<any, any>,
+  maps?: Maps
 ): NgPropertyDeclaration {
 
   if(isInjectedDependency(property)) {
+
+    let ty: string = 'type missing',
+      typeText: string = 'type missing',
+      args: string[] | undefined = [];
 
     const type = findChildNodeOfKind(
       node,
@@ -68,30 +70,57 @@ function addInjectedFlag(
       ts.isTypeNode
     );
 
-    if(type && ts.isTypeNode(type)) {
+    if(type) {
 
-      let ty: string = 'type missing',
-        args: string[] | undefined = [];
+      if(ts.isTypeNode(type)) {
 
-      switch(true) {
-        case ts.isTypeReferenceNode(type):
-          ty = type.typeName.getText(sourceFile);
-          args = type.typeArguments?.map(arg => {
-            return arg.getText(sourceFile)
-          });
-          break;
-        case ts.isExpressionWithTypeArguments(type):
-          ty = type.expression.getText(sourceFile);
-          args = type.typeArguments?.map(arg => {
-            return arg.getText(sourceFile)
-          });
-          break;
+        switch (true) {
+          case ts.isTypeReferenceNode(type):
+            ty = type.typeName.getText(sourceFile);
+            args = type.typeArguments?.map(arg => {
+              return arg.getText(sourceFile)
+            });
+            typeText = type.getText(sourceFile);
+            break;
+          case ts.isExpressionWithTypeArguments(type):
+            ty = type.expression.getText(sourceFile);
+            args = type.typeArguments?.map(arg => {
+              return arg.getText(sourceFile)
+            });
+            typeText = type.getText(sourceFile);
+            break;
+          default:
+            console.warn('Unhandled type node');
+            console.warn(ts.SyntaxKind[type.kind]);
+            console.warn(type.getText(sourceFile));
+        }
       }
 
-      property.injectedDependency = {
-        type: ty,
-        text: type.getText(sourceFile),
-        args
+    } else {
+
+      if(node.initializer && ts.isCallExpression(node.initializer)) {
+        if(ts.isIdentifier(node.initializer.arguments[0])) {
+          ty = node.initializer.arguments[0].getText(sourceFile);
+          typeText = ty;
+        }
+      }
+    }
+
+    property.injectedDependency = {
+      type: ty,
+      text: typeText,
+      args
+    }
+
+    if(maps?.imports) {
+      const mapElement = maps.imports.find(imp => imp.name === ty);
+      if (mapElement) {
+        if (mapElement.resolvedModulePath) {
+          property.injectedDependency.resolvedPath = mapElement.resolvedModulePath;
+        }
+        if (mapElement.convertedModulePath) {
+          property.injectedDependency.convertedPath = mapElement.convertedModulePath;
+        }
       }
     }
   }

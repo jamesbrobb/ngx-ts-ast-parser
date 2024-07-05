@@ -208,23 +208,7 @@
             "signature": "HorzScaleItem"
           }
         ],
-        "modifiers": {
-          "decorators": [
-            {
-              "type": "Directive",
-              "metadata": {
-                "selector": "[tvChartOutputs]",
-                "standalone": true
-              },
-              "signature": "@Directive({selector: [tvChartOutputs], standalone: true})"
-            }
-          ],
-          "keywords": [
-            "export"
-          ]
-        },
-        "isUI": true,
-        "injectedDependencies": [
+        "members": [
           {
             "kind": "PropertyDeclaration",
             "name": "#chart",
@@ -264,9 +248,37 @@
               "args": [
                 "T",
                 "HorzScaleItem"
-              ]
+              ],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart"
             },
             "signature": "readonly #chart = inject(TVChart<T, HorzScaleItem>)"
+          }
+        ],
+        "modifiers": {
+          "decorators": [
+            {
+              "type": "Directive",
+              "metadata": {
+                "selector": "[tvChartOutputs]",
+                "standalone": true
+              },
+              "signature": "@Directive({selector: [tvChartOutputs], standalone: true})"
+            }
+          ],
+          "keywords": [
+            "export"
+          ]
+        },
+        "isUI": true,
+        "injectedDependencies": [
+          {
+            "type": "TVChart",
+            "text": "TVChart<T, HorzScaleItem>",
+            "args": [
+              "T",
+              "HorzScaleItem"
+            ],
+            "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart"
           }
         ],
         "outputs": [
@@ -559,6 +571,42 @@
         "convertedModulePath": "https://angular.dev/api/core/effect"
       },
       {
+        "name": "output",
+        "module": "@angular/core",
+        "resolvedModulePath": "@angular/core",
+        "convertedModulePath": "https://angular.dev/api/core/output"
+      },
+      {
+        "name": "OutputEmitterRef",
+        "module": "@angular/core",
+        "resolvedModulePath": "@angular/core",
+        "convertedModulePath": "https://angular.dev/api/core/OutputEmitterRef"
+      },
+      {
+        "name": "EventEmitter",
+        "module": "@angular/core",
+        "resolvedModulePath": "@angular/core",
+        "convertedModulePath": "https://angular.dev/api/core/EventEmitter"
+      },
+      {
+        "name": "Input",
+        "module": "@angular/core",
+        "resolvedModulePath": "@angular/core",
+        "convertedModulePath": "https://angular.dev/api/core/Input"
+      },
+      {
+        "name": "Output",
+        "module": "@angular/core",
+        "resolvedModulePath": "@angular/core",
+        "convertedModulePath": "https://angular.dev/api/core/Output"
+      },
+      {
+        "name": "Inject",
+        "module": "@angular/core",
+        "resolvedModulePath": "@angular/core",
+        "convertedModulePath": "https://angular.dev/api/core/Inject"
+      },
+      {
         "name": "ChartOptions",
         "module": "lightweight-charts",
         "resolvedModulePath": "lightweight-charts",
@@ -630,6 +678,12 @@
         "name": "tvChartOutputsDirectiveHostDef",
         "module": "./charts-outputs.directive",
         "resolvedModulePath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/charts-outputs.directive"
+      },
+      {
+        "name": "outputFromObservable",
+        "module": "@angular/core/rxjs-interop",
+        "resolvedModulePath": "@angular/core/rxjs-interop",
+        "convertedModulePath": "https://angular.dev/api/core/rxjs-interop/outputFromObservable"
       }
     ],
     "exports": [
@@ -790,11 +844,130 @@
               ]
             },
             "access": "private",
+            "injectedDependency": {
+              "type": "TVChartInputsDirective",
+              "text": "TVChartInputsDirective",
+              "args": [],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+            },
             "signature": "readonly #inputs = inject(TVChartInputsDirective)"
           },
           {
+            "kind": "PropertyDeclaration",
+            "name": "#element",
+            "initializedValue": {
+              "name": "nativeElement",
+              "expression": {
+                "expression": "inject",
+                "arguments": [
+                  {
+                    "kind": "ExpressionWithTypeArguments",
+                    "expression": "ElementRef",
+                    "typeArguments": [
+                      {
+                        "kind": "TypeReference",
+                        "name": "HTMLElement",
+                        "signature": "HTMLElement"
+                      }
+                    ],
+                    "resolvedPath": "https://angular.dev/api/core/ElementRef",
+                    "signature": "ElementRef<HTMLElement>"
+                  }
+                ],
+                "signature": "inject(ElementRef<HTMLElement>)"
+              },
+              "signature": "inject(ElementRef<HTMLElement>).nativeElement"
+            },
+            "modifiers": {
+              "keywords": [
+                "readonly"
+              ]
+            },
+            "access": "private",
+            "injectedDependency": {
+              "type": "ElementRef",
+              "text": "ElementRef<HTMLElement>",
+              "args": [
+                "HTMLElement"
+              ],
+              "resolvedPath": "@angular/core",
+              "convertedPath": "https://angular.dev/api/core/ElementRef"
+            },
+            "signature": "readonly #element = inject(ElementRef<HTMLElement>).nativeElement"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "#chart",
+            "initializedValue": {
+              "expression": "inject",
+              "arguments": [
+                {
+                  "kind": "ExpressionWithTypeArguments",
+                  "expression": "TVChart",
+                  "typeArguments": [
+                    {
+                      "kind": "TypeReference",
+                      "name": "T",
+                      "signature": "T"
+                    },
+                    {
+                      "kind": "TypeReference",
+                      "name": "HorzScaleItem",
+                      "signature": "HorzScaleItem"
+                    }
+                  ],
+                  "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart",
+                  "signature": "TVChart<T, HorzScaleItem>"
+                }
+              ],
+              "signature": "inject(TVChart<T, HorzScaleItem>)"
+            },
+            "modifiers": {
+              "keywords": [
+                "readonly"
+              ]
+            },
+            "access": "private",
+            "injectedDependency": {
+              "type": "TVChart",
+              "text": "TVChart<T, HorzScaleItem>",
+              "args": [
+                "T",
+                "HorzScaleItem"
+              ],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart"
+            },
+            "signature": "readonly #chart = inject(TVChart<T, HorzScaleItem>)"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "test2",
+            "type": "string",
+            "exclamation": true,
+            "modifiers": {
+              "keywords": [
+                "protected",
+                "readonly"
+              ]
+            },
+            "access": "protected",
+            "signature": "protected readonly test2!: undefined"
+          },
+          {
             "kind": "Constructor",
-            "parameters": []
+            "parameters": [
+              {
+                "kind": "Parameter",
+                "name": "element",
+                "type": {
+                  "kind": "TypeReference",
+                  "name": "ElementRef",
+                  "resolvedPath": "https://angular.dev/api/core/ElementRef",
+                  "signature": "ElementRef"
+                },
+                "signature": "element: ElementRef"
+              }
+            ]
           }
         ],
         "heritageClauses": [
@@ -839,6 +1012,65 @@
             "export"
           ]
         },
+        "properties": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "sjdhfkjds",
+            "type": {
+              "kind": "TypeReference",
+              "name": "TVChart",
+              "typeArguments": [
+                {
+                  "kind": "TypeReference",
+                  "name": "T",
+                  "signature": "T"
+                },
+                {
+                  "kind": "TypeReference",
+                  "name": "HorzScaleItem",
+                  "signature": "HorzScaleItem"
+                }
+              ],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart",
+              "signature": "TVChart<T, HorzScaleItem>"
+            },
+            "optional": true,
+            "modifiers": {
+              "decorators": [
+                {
+                  "type": "Inject",
+                  "metadata": "TVChart",
+                  "signature": "@Inject('TVChart')"
+                }
+              ]
+            },
+            "access": "public",
+            "injectedDependency": {
+              "type": "TVChart",
+              "text": "TVChart<T, HorzScaleItem>",
+              "args": [
+                "T",
+                "HorzScaleItem"
+              ],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart"
+            },
+            "signature": "@Inject('TVChart')\nsjdhfkjds?: TVChart<T, HorzScaleItem>"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "test",
+            "type": "string",
+            "optional": true,
+            "modifiers": {
+              "keywords": [
+                "public",
+                "readonly"
+              ]
+            },
+            "access": "public",
+            "signature": "readonly test?: undefined"
+          }
+        ],
         "methods": [
           {
             "kind": "MethodDeclaration",
@@ -978,88 +1210,37 @@
         "isUI": true,
         "injectedDependencies": [
           {
-            "kind": "PropertyDeclaration",
-            "name": "#element",
-            "initializedValue": {
-              "name": "nativeElement",
-              "expression": {
-                "expression": "inject",
-                "arguments": [
-                  {
-                    "kind": "ExpressionWithTypeArguments",
-                    "expression": "ElementRef",
-                    "typeArguments": [
-                      {
-                        "kind": "TypeReference",
-                        "name": "HTMLElement",
-                        "signature": "HTMLElement"
-                      }
-                    ],
-                    "resolvedPath": "https://angular.dev/api/core/ElementRef",
-                    "signature": "ElementRef<HTMLElement>"
-                  }
-                ],
-                "signature": "inject(ElementRef<HTMLElement>)"
-              },
-              "signature": "inject(ElementRef<HTMLElement>).nativeElement"
-            },
-            "modifiers": {
-              "keywords": [
-                "readonly"
-              ]
-            },
-            "access": "private",
-            "injectedDependency": {
-              "type": "ElementRef",
-              "text": "ElementRef<HTMLElement>",
-              "args": [
-                "HTMLElement"
-              ]
-            },
-            "signature": "readonly #element = inject(ElementRef<HTMLElement>).nativeElement"
+            "type": "TVChartInputsDirective",
+            "text": "TVChartInputsDirective",
+            "args": [],
+            "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
           },
           {
-            "kind": "PropertyDeclaration",
-            "name": "#chart",
-            "initializedValue": {
-              "expression": "inject",
-              "arguments": [
-                {
-                  "kind": "ExpressionWithTypeArguments",
-                  "expression": "TVChart",
-                  "typeArguments": [
-                    {
-                      "kind": "TypeReference",
-                      "name": "T",
-                      "signature": "T"
-                    },
-                    {
-                      "kind": "TypeReference",
-                      "name": "HorzScaleItem",
-                      "signature": "HorzScaleItem"
-                    }
-                  ],
-                  "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart",
-                  "signature": "TVChart<T, HorzScaleItem>"
-                }
-              ],
-              "signature": "inject(TVChart<T, HorzScaleItem>)"
-            },
-            "modifiers": {
-              "keywords": [
-                "readonly"
-              ]
-            },
-            "access": "private",
-            "injectedDependency": {
-              "type": "TVChart",
-              "text": "TVChart<T, HorzScaleItem>",
-              "args": [
-                "T",
-                "HorzScaleItem"
-              ]
-            },
-            "signature": "readonly #chart = inject(TVChart<T, HorzScaleItem>)"
+            "type": "ElementRef",
+            "text": "ElementRef<HTMLElement>",
+            "args": [
+              "HTMLElement"
+            ],
+            "resolvedPath": "@angular/core",
+            "convertedPath": "https://angular.dev/api/core/ElementRef"
+          },
+          {
+            "type": "TVChart",
+            "text": "TVChart<T, HorzScaleItem>",
+            "args": [
+              "T",
+              "HorzScaleItem"
+            ],
+            "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart"
+          },
+          {
+            "type": "TVChart",
+            "text": "TVChart<T, HorzScaleItem>",
+            "args": [
+              "T",
+              "HorzScaleItem"
+            ],
+            "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart"
           }
         ],
         "inputs": [
@@ -1186,6 +1367,144 @@
             "access": "public",
             "isInput": true,
             "signature": "customSeriesView = input<ICustomSeriesPaneView<HorzScaleItem>>()"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "testInput",
+            "type": "string",
+            "optional": true,
+            "initializedValue": "test",
+            "modifiers": {
+              "decorators": [
+                {
+                  "type": "Input",
+                  "metadata": {
+                    "alias": "testInput"
+                  },
+                  "signature": "@Input({alias: testInput})"
+                }
+              ]
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "@Input({alias: testInput})\ntestInput?: undefined = test"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "testInput2",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                "string"
+              ],
+              "arguments": [],
+              "signature": "input<string>()"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "testInput2 = input<string>()"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "testInput3",
+            "initializedValue": {
+              "expression": "input",
+              "typeArguments": [
+                "string"
+              ],
+              "arguments": [
+                "test"
+              ],
+              "signature": "input<string>(test)"
+            },
+            "access": "public",
+            "isInput": true,
+            "signature": "testInput3 = input<string>(test)"
+          }
+        ],
+        "outputs": [
+          {
+            "kind": "PropertyDeclaration",
+            "name": "output",
+            "initializedValue": {
+              "expression": "output",
+              "typeArguments": [
+                "string"
+              ],
+              "arguments": [],
+              "signature": "output<string>()"
+            },
+            "access": "public",
+            "isOutput": true,
+            "signature": "output = output<string>()"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "output2",
+            "type": {
+              "kind": "TypeReference",
+              "name": "OutputEmitterRef",
+              "typeArguments": [
+                "number"
+              ],
+              "resolvedPath": "https://angular.dev/api/core/OutputEmitterRef",
+              "signature": "OutputEmitterRef<>"
+            },
+            "initializedValue": {
+              "expression": "output",
+              "typeArguments": [
+                "number"
+              ],
+              "arguments": [],
+              "signature": "output<number>()"
+            },
+            "access": "public",
+            "isOutput": true,
+            "signature": "output2: OutputEmitterRef<> = output<number>()"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "ouput3",
+            "initializedValue": {
+              "expression": "outputFromObservable",
+              "arguments": [
+                {
+                  "expression": "EventEmitter",
+                  "typeArguments": [
+                    "string"
+                  ],
+                  "arguments": [],
+                  "signature": "new EventEmitter()"
+                }
+              ],
+              "signature": "outputFromObservable(new EventEmitter())"
+            },
+            "access": "public",
+            "isOutput": true,
+            "signature": "ouput3 = outputFromObservable(new EventEmitter())"
+          },
+          {
+            "kind": "PropertyDeclaration",
+            "name": "testOutput",
+            "initializedValue": {
+              "expression": "EventEmitter",
+              "typeArguments": [
+                "string"
+              ],
+              "arguments": [],
+              "signature": "new EventEmitter()"
+            },
+            "modifiers": {
+              "decorators": [
+                {
+                  "type": "Output",
+                  "signature": "@Output()"
+                }
+              ]
+            },
+            "access": "public",
+            "isOutput": true,
+            "signature": "@Output()\ntestOutput = new EventEmitter()"
           }
         ],
         "lifeCycleMethods": [
@@ -1355,10 +1674,24 @@
               ]
             },
             "access": "public",
+            "injectedDependency": {
+              "type": "TVChartInputsDirective",
+              "text": "TVChartInputsDirective",
+              "args": [],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+            },
             "signature": "readonly inputs = inject(TVChartInputsDirective)"
           }
         ],
         "isUI": true,
+        "injectedDependencies": [
+          {
+            "type": "TVChartInputsDirective",
+            "text": "TVChartInputsDirective",
+            "args": [],
+            "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+          }
+        ],
         "inputs": [
           {
             "kind": "PropertyDeclaration",
@@ -1560,8 +1893,8 @@
               "typeArguments": [
                 {
                   "kind": "LiteralType",
-                  "value": "'Histogram'",
-                  "signature": "'Histogram'"
+                  "value": "Histogram",
+                  "signature": "Histogram"
                 },
                 {
                   "kind": "TypeReference",
@@ -1570,11 +1903,11 @@
                 }
               ],
               "resolvedPath": "https://tradingview.github.io/lightweight-charts/docs/api/interfaces/iseriesapi",
-              "signature": "ISeriesApi<'Histogram', HorzScaleItem>"
+              "signature": "ISeriesApi<Histogram, HorzScaleItem>"
             },
             "optional": true,
             "access": "private",
-            "signature": "#histogramSeries?: ISeriesApi<'Histogram', HorzScaleItem>"
+            "signature": "#histogramSeries?: ISeriesApi<Histogram, HorzScaleItem>"
           },
           {
             "kind": "Constructor",
@@ -1660,8 +1993,8 @@
                   "typeArguments": [
                     {
                       "kind": "LiteralType",
-                      "value": "'Candlestick'",
-                      "signature": "'Candlestick'"
+                      "value": "Candlestick",
+                      "signature": "Candlestick"
                     },
                     {
                       "kind": "TypeReference",
@@ -1670,7 +2003,7 @@
                     }
                   ],
                   "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart.directive",
-                  "signature": "TVChartDirective<'Candlestick', HorzScaleItem>"
+                  "signature": "TVChartDirective<Candlestick, HorzScaleItem>"
                 },
                 {
                   "kind": "TypeReference",
@@ -1678,8 +2011,8 @@
                   "typeArguments": [
                     {
                       "kind": "LiteralType",
-                      "value": "'Candlestick'",
-                      "signature": "'Candlestick'"
+                      "value": "Candlestick",
+                      "signature": "Candlestick"
                     },
                     {
                       "kind": "TypeReference",
@@ -1688,7 +2021,7 @@
                     }
                   ],
                   "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/core/tv-chart/tv-chart",
-                  "signature": "TVChart<'Candlestick', HorzScaleItem>"
+                  "signature": "TVChart<Candlestick, HorzScaleItem>"
                 }
               ],
               "arguments": [
@@ -1698,8 +2031,8 @@
                   "typeArguments": [
                     {
                       "kind": "LiteralType",
-                      "value": "'Candlestick'",
-                      "signature": "'Candlestick'"
+                      "value": "Candlestick",
+                      "signature": "Candlestick"
                     },
                     {
                       "kind": "TypeReference",
@@ -1708,16 +2041,16 @@
                     }
                   ],
                   "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart.directive",
-                  "signature": "TVChartDirective<'Candlestick', HorzScaleItem>"
+                  "signature": "TVChartDirective<Candlestick, HorzScaleItem>"
                 },
                 {
                   "read": "TVChart"
                 }
               ],
-              "signature": "viewChild<TVChartDirective<'Candlestick', HorzScaleItem>, TVChart<'Candlestick', HorzScaleItem>>(TVChartDirective<'Candlestick', HorzScaleItem>, { read: TVChart })"
+              "signature": "viewChild<TVChartDirective<Candlestick, HorzScaleItem>, TVChart<Candlestick, HorzScaleItem>>(TVChartDirective<Candlestick, HorzScaleItem>, { read: TVChart })"
             },
             "access": "public",
-            "signature": "chart = viewChild<TVChartDirective<'Candlestick', HorzScaleItem>, TVChart<'Candlestick', HorzScaleItem>>(TVChartDirective<'Candlestick', HorzScaleItem>, { read: TVChart })"
+            "signature": "chart = viewChild<TVChartDirective<Candlestick, HorzScaleItem>, TVChart<Candlestick, HorzScaleItem>>(TVChartDirective<Candlestick, HorzScaleItem>, { read: TVChart })"
           },
           {
             "kind": "PropertyDeclaration",
@@ -1752,12 +2085,23 @@
               "text": "TVChartInputsDirective<HorzScaleItem>",
               "args": [
                 "HorzScaleItem"
-              ]
+              ],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
             },
             "signature": "readonly inputs = inject(TVChartInputsDirective<HorzScaleItem>)"
           }
         ],
         "isUI": true,
+        "injectedDependencies": [
+          {
+            "type": "TVChartInputsDirective",
+            "text": "TVChartInputsDirective<HorzScaleItem>",
+            "args": [
+              "HorzScaleItem"
+            ],
+            "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+          }
+        ],
         "inputs": [
           {
             "kind": "PropertyDeclaration",
@@ -1994,10 +2338,24 @@
               ]
             },
             "access": "public",
+            "injectedDependency": {
+              "type": "TVChartInputsDirective",
+              "text": "TVChartInputsDirective",
+              "args": [],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+            },
             "signature": "readonly inputs = inject(TVChartInputsDirective)"
           }
         ],
         "isUI": true,
+        "injectedDependencies": [
+          {
+            "type": "TVChartInputsDirective",
+            "text": "TVChartInputsDirective",
+            "args": [],
+            "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+          }
+        ],
         "inputs": [
           {
             "kind": "PropertyDeclaration",
@@ -2182,10 +2540,24 @@
               ]
             },
             "access": "public",
+            "injectedDependency": {
+              "type": "TVChartInputsDirective",
+              "text": "TVChartInputsDirective",
+              "args": [],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+            },
             "signature": "readonly inputs = inject(TVChartInputsDirective)"
           }
         ],
         "isUI": true,
+        "injectedDependencies": [
+          {
+            "type": "TVChartInputsDirective",
+            "text": "TVChartInputsDirective",
+            "args": [],
+            "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+          }
+        ],
         "inputs": [
           {
             "kind": "PropertyDeclaration",
@@ -2370,10 +2742,24 @@
               ]
             },
             "access": "public",
+            "injectedDependency": {
+              "type": "TVChartInputsDirective",
+              "text": "TVChartInputsDirective",
+              "args": [],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+            },
             "signature": "readonly inputs = inject(TVChartInputsDirective)"
           }
         ],
         "isUI": true,
+        "injectedDependencies": [
+          {
+            "type": "TVChartInputsDirective",
+            "text": "TVChartInputsDirective",
+            "args": [],
+            "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+          }
+        ],
         "inputs": [
           {
             "kind": "PropertyDeclaration",
@@ -2558,10 +2944,24 @@
               ]
             },
             "access": "public",
+            "injectedDependency": {
+              "type": "TVChartInputsDirective",
+              "text": "TVChartInputsDirective",
+              "args": [],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+            },
             "signature": "readonly inputs = inject(TVChartInputsDirective)"
           }
         ],
         "isUI": true,
+        "injectedDependencies": [
+          {
+            "type": "TVChartInputsDirective",
+            "text": "TVChartInputsDirective",
+            "args": [],
+            "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+          }
+        ],
         "inputs": [
           {
             "kind": "PropertyDeclaration",
@@ -2746,10 +3146,24 @@
               ]
             },
             "access": "public",
+            "injectedDependency": {
+              "type": "TVChartInputsDirective",
+              "text": "TVChartInputsDirective",
+              "args": [],
+              "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+            },
             "signature": "readonly inputs = inject(TVChartInputsDirective)"
           }
         ],
         "isUI": true,
+        "injectedDependencies": [
+          {
+            "type": "TVChartInputsDirective",
+            "text": "TVChartInputsDirective",
+            "args": [],
+            "resolvedPath": "Users/James/WebstormProjects/ngx-lightweight-charts/library/src/lib/ng/charts/chart-inputs.directive"
+          }
+        ],
         "inputs": [
           {
             "kind": "PropertyDeclaration",

@@ -10,6 +10,7 @@ import {
 import {isUIClass} from "../helpers";
 import {isInjectedProperty, isInputProperty, isOutputProperty, NgPropertyDeclaration} from "./property";
 import {isLifeCycleMethod, NgMethodDeclaration} from "./method";
+import {InjectedDependency} from "./injected-dependency";
 
 
 
@@ -22,7 +23,7 @@ export type NgClassDeclaration = ClassDeclaration & {
     inputs?: NgPropertyDeclaration[] & {isInput: true}[],
     outputs?: NgPropertyDeclaration[] & {isOutput: true}[],
     lifeCycleMethods?: NgMethodDeclaration[] & {isLifeCycleMethod: true}[],
-    injectedDependencies?: NgPropertyDeclaration[] & {injectedDependency: true}[],
+    injectedDependencies?: InjectedDependency[]
 }
 
 
@@ -52,7 +53,10 @@ function addUIFlag(classDeclaration: NgClassDeclaration): NgClassDeclaration {
 }
 
 function addInjectedProperties(dec: NgClassDeclaration): NgClassDeclaration {
-  const injectedDependencies = dec.members?.filter(isInjectedProperty);
+  const injectedDependencies = [...dec.members || [], ...dec.properties || []]
+    .filter(isInjectedProperty)
+    .filter((prop: NgPropertyDeclaration) => !!prop.injectedDependency)
+    .map((prop: NgPropertyDeclaration) => prop.injectedDependency as InjectedDependency);
 
   if(injectedDependencies && injectedDependencies.length > 0) {
     dec.injectedDependencies = injectedDependencies

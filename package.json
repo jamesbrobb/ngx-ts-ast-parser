@@ -16,7 +16,7 @@
   "author": "James Robb",
   "license": "ISC",
   "dependencies": {
-    "@jamesbenrobb/ts-ast-parser": "^0.0.1-beta.13",
+    "@jamesbenrobb/ts-ast-parser": "^0.0.1-beta.14",
     "typescript": "^5.4.3"
   },
   "devDependencies": {
