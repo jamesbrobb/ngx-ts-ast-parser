@@ -1,6 +1,5 @@
 ## Angular specific declarations for @jamesbenrobb/ts-ast-parser
 
----
 Example usage of `parse` function from `./parser.ts`:
 
 1) [Example file to parse](#1)
