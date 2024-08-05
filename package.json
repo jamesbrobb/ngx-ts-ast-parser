@@ -1,6 +1,6 @@
 {
   "name": "@jamesbenrobb/ngx-ts-ast-parser",
-  "version": "0.0.1-beta.4",
+  "version": "0.0.1",
   "description": "Angular specific declarations for @jamesbenrobb/ts-ast-parser",
   "main": "index.js",
   "scripts": {
