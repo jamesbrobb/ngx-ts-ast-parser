@@ -41,7 +41,7 @@ function run() {
 
     const parser = new Parser(ngDeclarationDefinitionMap);
 
-    const source = parse(sourcePath, parser, pathHandlers, {walk: true, debug: false});
+    const source = parse(sourcePath, parser, pathHandlers, {walk: false, debug: false});
 
     fs.writeFileSync(
       path.join('/Users/James/WebstormProjects/ngx-ts-ast-parser/scripts/output', 'test.json'),
