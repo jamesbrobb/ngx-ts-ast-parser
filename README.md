@@ -1,7 +1,5 @@
 ## Angular specific declarations for @jamesbenrobb/ts-ast-parser
 
-A parser that converts `.ts` files into human readable objects.
-
 ---
 Example usage of `parse` function from `./parser.ts`:
 
@@ -177,7 +175,7 @@ console.log(source);
               "boolean"
             ],
             "resolvedPath": "https://rxjs.dev/api/index/class/Observable",
-            "signature": "Observable<>"
+            "signature": "Observable<boolean>"
           },
           "optional": true,
           "modifiers": {
@@ -186,7 +184,7 @@ console.log(source);
             ]
           },
           "access": "public",
-          "signature": " someValue?: Observable<>"
+          "signature": " someValue?: Observable<boolean>"
         }
       ],
       "methods": [
@@ -200,8 +198,8 @@ console.log(source);
             ]
           },
           "access": "public",
-          "returnType": "",
-          "signature": " myMethod()"
+          "returnType": "string",
+          "signature": " myMethod(): string"
         }
       ],
       "inputs": [
@@ -223,7 +221,7 @@ console.log(source);
           },
           "access": "public",
           "isInput": true,
-          "signature": "@Input({required: true})\nmyRequiredInput?: undefined"
+          "signature": "@Input({required: true})\nmyRequiredInput?: string"
         },
         {
           "kind": "PropertyDeclaration",
@@ -241,7 +239,7 @@ console.log(source);
           },
           "access": "public",
           "isInput": true,
-          "signature": "@Input('alias')\nmyAliasedInput?: undefined"
+          "signature": "@Input('alias')\nmyAliasedInput?: string"
         }
       ],
       "outputs": [
@@ -254,7 +252,7 @@ console.log(source);
               "string"
             ],
             "arguments": [],
-            "signature": "new EventEmitter()"
+            "signature": "new EventEmitter<string>()"
           },
           "modifiers": {
             "decorators": [
@@ -266,7 +264,7 @@ console.log(source);
           },
           "access": "public",
           "isOutput": true,
-          "signature": "@Output()\nmyOutput = new EventEmitter()"
+          "signature": "@Output()\nmyOutput = new EventEmitter<string>()"
         }
       ]
     }
